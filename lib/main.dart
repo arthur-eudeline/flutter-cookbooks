@@ -8,6 +8,7 @@ import 'package:cookbooks_training/cookbooks/01_animation/02_fade_a_widget_in_an
 import 'package:cookbooks_training/cookbooks/02_design/01_add_a_drawer_to_a_screen/main.dart';
 import 'package:cookbooks_training/cookbooks/02_design/02_displaying_snackbars/main.dart';
 import 'package:cookbooks_training/cookbooks/02_design/04_updating_the_ui_based_on_orientation/main.dart';
+import 'package:cookbooks_training/cookbooks/02_design/05_using_themes/main.dart';
 
 
 // Navigation
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
         "/02_design/01_add_a_drawer_to_a_screen/main" : (context) => AppDrawerScreen(),
         "/02_design/02_displaying_snackbars/main" : (context) => AppSnackBar(),
         "/02_design/04_updating_the_ui_based_on_orientation/main" : (context) => AppOrientationUI(),
+        "/02_design/05_using_themes/main" : (context) => AppTheme(),
 
         "/07_navigation/03_navigate_with_named_routes/firstScreen": (context) =>
             FirstScreen(),
@@ -87,42 +89,61 @@ class MyHomePage extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           // ---- 01 Animation ----
-          buildRowTitle("01. Animation", context),
-          buildRowItem(
-            bookName: "01 Animate the properties of a Container",
-            bookRoute: "/01_animation/01_animate_the_properties_of_a_container/main",
-            context: context
+          Column(
+            children: <Widget>[
+              buildRowTitle("01. Animation", context),
+              buildRowItem(
+                bookName: "01 Animate the properties of a Container",
+                bookRoute: "/01_animation/01_animate_the_properties_of_a_container/main",
+                context: context
+              ),
+              buildRowItem(
+                bookName: "02 Fade a Widget in and out",
+                bookRoute: "/01_animation/02_fade_a_widget_in_and_out/main",
+                context: context
+              ),
+            ],
           ),
-          buildRowItem(
-            bookName: "02 Fade a Widget in and out",
-            bookRoute: "/01_animation/02_fade_a_widget_in_and_out/main",
-            context: context
-          ),
+
           // ---- 02 Design ----
-          buildRowTitle("02. Design", context),
-          buildRowItem(
-            bookName: "01 Add a Drawer to a screen",
-            bookRoute: "/02_design/01_add_a_drawer_to_a_screen/main",
-            context: context
-          ),
-          buildRowItem(
-            bookName: "02 Displaying SnackBars",
-            bookRoute: "/02_design/02_displaying_snackbars/main",
-            context: context
-          ),
-          buildRowItem(
-            bookName: "04 Updating the UI based on orientation",
-            bookRoute: "/02_design/04_updating_the_ui_based_on_orientation/main",
-            context: context
+          Column(
+            children: <Widget>[
+              buildRowTitle("02. Design", context),
+              buildRowItem(
+                bookName: "01 Add a Drawer to a screen",
+                bookRoute: "/02_design/01_add_a_drawer_to_a_screen/main",
+                context: context
+              ),
+              buildRowItem(
+                bookName: "02 Displaying SnackBars",
+                bookRoute: "/02_design/02_displaying_snackbars/main",
+                context: context
+              ),
+              buildRowItem(
+                bookName: "04 Updating the UI based on orientation",
+                bookRoute: "/02_design/04_updating_the_ui_based_on_orientation/main",
+                context: context
+              ),
+              buildRowItem(
+                bookName: "05 Using Themes",
+                bookRoute: "/02_design/05_using_themes/main",
+                context: context
+              ),
+            ],
           ),
 
           // ---- 07 Navigation ----
-          buildRowTitle("07. Navigation", context),
-          buildRowItem(
-              bookName: "03. Navigate with named routes",
-              bookRoute:
-                  "/07_navigation/03_navigate_with_named_routes/firstScreen",
-              context: context)
+          Column(
+            children: <Widget>[
+              buildRowTitle("07. Navigation", context),
+              buildRowItem(
+                bookName: "03. Navigate with named routes",
+                bookRoute:
+                "/07_navigation/03_navigate_with_named_routes/firstScreen",
+                context: context,
+              )
+            ],
+          ),
         ],
       ),
     );
