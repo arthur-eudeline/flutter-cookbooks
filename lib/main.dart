@@ -9,6 +9,7 @@ import 'package:cookbooks_training/cookbooks/02_design/01_add_a_drawer_to_a_scre
 import 'package:cookbooks_training/cookbooks/02_design/02_displaying_snackbars/main.dart';
 import 'package:cookbooks_training/cookbooks/02_design/04_updating_the_ui_based_on_orientation/main.dart';
 import 'package:cookbooks_training/cookbooks/02_design/05_using_themes/main.dart';
+import 'package:cookbooks_training/cookbooks/02_design/06_using_custom_fonts/main.dart';
 
 
 // Navigation
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
         "/02_design/02_displaying_snackbars/main" : (context) => AppSnackBar(),
         "/02_design/04_updating_the_ui_based_on_orientation/main" : (context) => AppOrientationUI(),
         "/02_design/05_using_themes/main" : (context) => AppTheme(),
+        "/02_design/05_using_custom_fonts/main" : (context) => AppFont(),
 
         "/07_navigation/03_navigate_with_named_routes/firstScreen": (context) =>
             FirstScreen(),
@@ -127,6 +129,11 @@ class MyHomePage extends StatelessWidget {
               buildRowItem(
                 bookName: "05 Using Themes",
                 bookRoute: "/02_design/05_using_themes/main",
+                context: context
+              ),
+              buildRowItem(
+                bookName: "06 Using Custom Fonts",
+                bookRoute: "/02_design/05_using_custom_fonts/main",
                 context: context
               ),
             ],
