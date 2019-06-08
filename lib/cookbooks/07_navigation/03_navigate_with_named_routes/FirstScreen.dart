@@ -12,7 +12,7 @@ Widget build(BuildContext context) {
         child: Text('Launch screen'),
         onPressed: () {
           // Go to the widget defined for the route "/second" in ./routes.dart
-          Navigator.pushNamed(context, '/second');
+          Navigator.pushNamed(context, '/07_navigation/03_navigate_with_named_routes/secondScreen');
         },
       ),
     ),
