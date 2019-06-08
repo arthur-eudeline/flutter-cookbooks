@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+
+// Animations
 import 'package:cookbooks_training/cookbooks/01_animation/01_animate_the_properties_of_a_container/main.dart';
 import 'package:cookbooks_training/cookbooks/01_animation/02_fade_a_widget_in_and_out/main.dart';
 
+// Design
+import 'package:cookbooks_training/cookbooks/02_design/01_add_a_drawer_to_a_screen/main.dart';
+
+
+// Navigation
 import 'package:cookbooks_training/cookbooks/07_navigation/03_navigate_with_named_routes/FirstScreen.dart';
 import 'package:cookbooks_training/cookbooks/07_navigation/03_navigate_with_named_routes/SecondScreen.dart';
 
@@ -19,8 +26,12 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) => MyHomePage(title: "Flutter CookBooks"),
 
+        // Animations
         "/01_animation/01_animate_the_properties_of_a_container/main" : (context) => AnimatedContainerApp(),
         "/01_animation/02_fade_a_widget_in_and_out/main" : (context) => FadingWidgetScreen(),
+
+        // Design
+        "/02_design/01_add_a_drawer_to_a_screen/main" : (context) => AppDrawerScreen(),
 
         "/07_navigation/03_navigate_with_named_routes/firstScreen": (context) =>
             FirstScreen(),
@@ -81,6 +92,13 @@ class MyHomePage extends StatelessWidget {
           buildRowItem(
             bookName: "02 Fade a Widget in and out",
             bookRoute: "/01_animation/02_fade_a_widget_in_and_out/main",
+            context: context
+          ),
+          // ---- 02 Design ----
+          buildRowTitle("02. Design", context),
+          buildRowItem(
+            bookName: "01 Add a Drawer to a screen",
+            bookRoute: "/02_design/01_add_a_drawer_to_a_screen/main",
             context: context
           ),
 

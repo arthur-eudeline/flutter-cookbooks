@@ -30,7 +30,7 @@ class __STATE_CLASS_NAME__ extends State<__WIDGET__NAME__> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         elevation: 0,
-        child: Icon(Icons.play_circle_outline),
+        child: Icon(this._buttonIcon),
         onPressed: () {
           this.buttonAction();
         },
