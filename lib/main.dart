@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cookbooks_training/cookbooks/07_navigation/03_navigate_with_named_routes/FirstScreen.dart';
 import 'package:cookbooks_training/cookbooks/07_navigation/03_navigate_with_named_routes/SecondScreen.dart';
+import 'package:cookbooks_training/cookbooks/01_animation/01_animate_the_properties_of_a_container/main.dart';
 
 void main() => runApp(MyApp());
 
@@ -15,6 +16,9 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         "/": (context) => MyHomePage(title: "Flutter CookBooks"),
+
+        "/01_animation/01_animate_the_properties_of_a_container/main" : (context) => AnimatedContainerApp(),
+
         "/07_navigation/03_navigate_with_named_routes/firstScreen": (context) =>
             FirstScreen(),
         "/07_navigation/03_navigate_with_named_routes/secondScreen":
@@ -64,6 +68,15 @@ class MyHomePage extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
+          // ---- 01 Animation ----
+          buildRowTitle("01. Animation", context),
+          buildRowItem(
+            bookName: "01 Animate the properties of a Container",
+            bookRoute: "/01_animation/01_animate_the_properties_of_a_container/main",
+            context: context
+          ),
+
+          // ---- 07 Navigation ----
           buildRowTitle("07. Navigation", context),
           buildRowItem(
               bookName: "03. Navigate with named routes",
