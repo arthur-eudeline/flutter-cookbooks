@@ -48,7 +48,7 @@ class MyHomePage extends StatelessWidget {
 
   Widget buildRowTitle(String title, BuildContext context) {
     return Padding(
-      padding: EdgeInsets.fromLTRB(15.0, 45.0, 15.0, 5.0),
+      padding: EdgeInsets.fromLTRB(15.0, 60.0, 15.0, 15.0),
       child: Text(
         title.toUpperCase(),
         style: TextStyle(
