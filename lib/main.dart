@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:cookbooks_training/cookbooks/01_animation/01_animate_the_properties_of_a_container/main.dart';
+import 'package:cookbooks_training/cookbooks/01_animation/02_fade_a_widget_in_and_out/main.dart';
+
 import 'package:cookbooks_training/cookbooks/07_navigation/03_navigate_with_named_routes/FirstScreen.dart';
 import 'package:cookbooks_training/cookbooks/07_navigation/03_navigate_with_named_routes/SecondScreen.dart';
-import 'package:cookbooks_training/cookbooks/01_animation/01_animate_the_properties_of_a_container/main.dart';
 
 void main() => runApp(MyApp());
 
@@ -18,6 +20,7 @@ class MyApp extends StatelessWidget {
         "/": (context) => MyHomePage(title: "Flutter CookBooks"),
 
         "/01_animation/01_animate_the_properties_of_a_container/main" : (context) => AnimatedContainerApp(),
+        "/01_animation/02_fade_a_widget_in_and_out/main" : (context) => FadingWidgetScreen(),
 
         "/07_navigation/03_navigate_with_named_routes/firstScreen": (context) =>
             FirstScreen(),
@@ -73,6 +76,11 @@ class MyHomePage extends StatelessWidget {
           buildRowItem(
             bookName: "01 Animate the properties of a Container",
             bookRoute: "/01_animation/01_animate_the_properties_of_a_container/main",
+            context: context
+          ),
+          buildRowItem(
+            bookName: "02 Fade a Widget in and out",
+            bookRoute: "/01_animation/02_fade_a_widget_in_and_out/main",
             context: context
           ),
 
