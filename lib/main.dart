@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cookbooks_training/cookbooks/07_navigation/03_navigate_with_named_routes/routes.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,7 +11,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Cookbooks'),
+      initialRoute: '/',
+      routes : routes(context),
     );
   }
 }
