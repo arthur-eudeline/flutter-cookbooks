@@ -6,6 +6,7 @@ import 'package:cookbooks_training/cookbooks/01_animation/02_fade_a_widget_in_an
 
 // Design
 import 'package:cookbooks_training/cookbooks/02_design/01_add_a_drawer_to_a_screen/main.dart';
+import 'package:cookbooks_training/cookbooks/02_design/02_displaying_snackbars/main.dart';
 
 
 // Navigation
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
 
         // Design
         "/02_design/01_add_a_drawer_to_a_screen/main" : (context) => AppDrawerScreen(),
+        "/02_design/02_displaying_snackbars/main" : (context) => AppSnackBar(),
 
         "/07_navigation/03_navigate_with_named_routes/firstScreen": (context) =>
             FirstScreen(),
@@ -99,6 +101,11 @@ class MyHomePage extends StatelessWidget {
           buildRowItem(
             bookName: "01 Add a Drawer to a screen",
             bookRoute: "/02_design/01_add_a_drawer_to_a_screen/main",
+            context: context
+          ),
+          buildRowItem(
+            bookName: "02 Displaying SnackBars",
+            bookRoute: "/02_design/02_displaying_snackbars/main",
             context: context
           ),
 
