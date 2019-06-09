@@ -15,6 +15,9 @@ import 'package:cookbooks_training/cookbooks/02_design/07_working_with_tabs/main
 // Forms
 import 'package:cookbooks_training/cookbooks/03_forms/main.dart';
 
+// Gestures
+import 'package:cookbooks_training/cookbooks/04_Gestures/main.dart';
+
 // Navigation
 import 'package:cookbooks_training/cookbooks/07_navigation/03_navigate_with_named_routes/FirstScreen.dart';
 import 'package:cookbooks_training/cookbooks/07_navigation/03_navigate_with_named_routes/SecondScreen.dart';
@@ -26,6 +29,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Cookbooks',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -47,6 +51,9 @@ class MyApp extends StatelessWidget {
 
         // Forms
         "/03_forms/main" : (context) => AppForm(),
+
+        // Gestures
+        "/04_gestures/main" : (context) => AppGesture(),
 
         "/07_navigation/03_navigate_with_named_routes/firstScreen": (context) =>
             FirstScreen(),
@@ -151,7 +158,7 @@ class MyHomePage extends StatelessWidget {
             ],
           ),
 
-
+          // ---- 03 Forms ----
           Column(
             children: <Widget>[
               buildRowTitle("03. Forms", context),
@@ -163,7 +170,17 @@ class MyHomePage extends StatelessWidget {
             ],
           ),
 
-
+          // ---- 04 Gestures ----
+          Column(
+            children: <Widget>[
+              buildRowTitle("04. Gestures", context),
+              buildRowItem(
+                bookName: "03 Swipe to dismiss",
+                bookRoute: "/04_gestures/main",
+                context: context
+              ),
+            ],
+          ),
 
           // ---- 07 Navigation ----
           Column(
