@@ -36,6 +36,7 @@ class MyCustomFormState extends State<MyCustomForm> {
   void dispose() {
     // Clean up the focus node when the Form is disposed
     myFocusNode.dispose();
+    myController.dispose();
 
     super.dispose();
   }
@@ -80,7 +81,7 @@ class MyCustomFormState extends State<MyCustomForm> {
               onPressed: () {
                 if (_formKey.currentState.validate()) {
                   Scaffold.of(context)
-                      .showSnackBar(SnackBar(content: Text("Form Submited")));
+                      .showSnackBar(SnackBar(content: Text(myController.text)));
                 }
               },
               child: Text(

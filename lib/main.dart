@@ -13,7 +13,7 @@ import 'package:cookbooks_training/cookbooks/02_design/06_using_custom_fonts/mai
 import 'package:cookbooks_training/cookbooks/02_design/07_working_with_tabs/main.dart';
 
 // Forms
-import 'package:cookbooks_training/cookbooks/03_forms/01_form_validation/main.dart';
+import 'package:cookbooks_training/cookbooks/03_forms/main.dart';
 
 // Navigation
 import 'package:cookbooks_training/cookbooks/07_navigation/03_navigate_with_named_routes/FirstScreen.dart';
@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
         "/02_design/07_working_with_tabs/main" : (context) => AppTabs(),
 
         // Forms
-        "/03_forms/01_form_validation/main" : (context) => AppFormValidation(),
+        "/03_forms/main" : (context) => AppForm(),
 
         "/07_navigation/03_navigate_with_named_routes/firstScreen": (context) =>
             FirstScreen(),
@@ -156,8 +156,8 @@ class MyHomePage extends StatelessWidget {
             children: <Widget>[
               buildRowTitle("03. Forms", context),
               buildRowItem(
-                bookName: "01 Building a form with validation",
-                bookRoute: "/03_forms/01_form_validation/main",
+                bookName: "All forms",
+                bookRoute: "/03_forms/main",
                 context: context
               ),
             ],

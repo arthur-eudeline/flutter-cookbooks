@@ -1,15 +1,15 @@
-import 'package:cookbooks_training/cookbooks/03_forms/01_form_validation/my_custom_form.dart';
+import 'package:cookbooks_training/cookbooks/03_forms/my_custom_form.dart';
 import 'package:flutter/material.dart';
 
-class AppFormValidation extends StatefulWidget {
+class AppForm extends StatefulWidget {
 
-  _AppFormValidationState createState() => new _AppFormValidationState();
+  _AppFormState createState() => new _AppFormState();
 }
 
-class _AppFormValidationState extends State<AppFormValidation> {
+class _AppFormState extends State<AppForm> {
 
   // Todo screen title
-  String _screenTitle = "Form validation";
+  String _screenTitle = "Forms";
 
   Widget buildTutorial() {
     return MyCustomForm();
