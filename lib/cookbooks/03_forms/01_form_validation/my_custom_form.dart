@@ -27,6 +27,16 @@ class MyCustomFormState extends State<MyCustomForm> {
         child: Column(
           children: <Widget>[
             TextFormField(
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                isDense: false,
+                contentPadding: EdgeInsets.all(18),
+                labelText: "Password",
+                hintText: "Type your password...",
+                suffixIcon: Icon(Icons.remove_red_eye,color: Colors.grey,),
+              ),
+
+              obscureText: true,
               // The validator receives the text the user has typed in
               validator: (value) {
                 if (value.isEmpty) {
