@@ -16,14 +16,20 @@ class MyCustomFormState extends State<MyCustomForm> {
   //
   // Note: This is a `GlobalKey<FormState>`, not a GlobalKey<MyCustomFormState>!
   final _formKey = GlobalKey<FormState>();
-
+  final myController = TextEditingController();
   FocusNode myFocusNode;
+
+  _printLatestValue() {
+    print("Text field: ${myController.text}");
+  }
+
 
   @override
   void initState() {
     super.initState();
 
     myFocusNode = FocusNode();
+    myController.addListener(_printLatestValue);
   }
 
   @override
@@ -57,6 +63,8 @@ class MyCustomFormState extends State<MyCustomForm> {
                   color: Colors.grey,
                 ),
               ),
+
+              controller: myController,
 
               obscureText: true,
               // The validator receives the text the user has typed in
