@@ -17,6 +17,23 @@ class MyCustomFormState extends State<MyCustomForm> {
   // Note: This is a `GlobalKey<FormState>`, not a GlobalKey<MyCustomFormState>!
   final _formKey = GlobalKey<FormState>();
 
+  FocusNode myFocusNode;
+
+  @override
+  void initState() {
+    super.initState();
+
+    myFocusNode = FocusNode();
+  }
+
+  @override
+  void dispose() {
+    // Clean up the focus node when the Form is disposed
+    myFocusNode.dispose();
+
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     // Build a Form widget using the _formKey we created above
@@ -27,13 +44,18 @@ class MyCustomFormState extends State<MyCustomForm> {
         child: Column(
           children: <Widget>[
             TextFormField(
+              focusNode: myFocusNode,
+//              autofocus: true,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 isDense: false,
                 contentPadding: EdgeInsets.all(18),
                 labelText: "Password",
                 hintText: "Type your password...",
-                suffixIcon: Icon(Icons.remove_red_eye,color: Colors.grey,),
+                suffixIcon: Icon(
+                  Icons.remove_red_eye,
+                  color: Colors.grey,
+                ),
               ),
 
               obscureText: true,
@@ -47,13 +69,24 @@ class MyCustomFormState extends State<MyCustomForm> {
             ),
             RaisedButton(
               color: Colors.blue,
+              onPressed: () {
+                if (_formKey.currentState.validate()) {
+                  Scaffold.of(context)
+                      .showSnackBar(SnackBar(content: Text("Form Submited")));
+                }
+              },
+              child: Text(
+                "Submit",
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+            OutlineButton(
+                color: Colors.blue,
+                borderSide: BorderSide(color: Colors.blue),
                 onPressed: () {
-                  if (_formKey.currentState.validate()) {
-                    Scaffold.of(context)
-                        .showSnackBar(SnackBar(content: Text("Form Submited")));
-                  }
+                  FocusScope.of(context).requestFocus(myFocusNode);
                 },
-                child: Text("Submit", style: TextStyle(color: Colors.white),))
+                child: Text("Focus Text field", style: TextStyle(color: Colors.blue),))
           ],
         ),
       ),
