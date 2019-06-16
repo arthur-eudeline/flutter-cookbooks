@@ -21,6 +21,7 @@ import 'package:cookbooks_training/cookbooks/04_Gestures/main.dart';
 // Lists
 import 'package:cookbooks_training/cookbooks/05_Lists/01_basic_list/main.dart';
 import 'package:cookbooks_training/cookbooks/05_Lists/02_horizontal_list/main.dart';
+import 'package:cookbooks_training/cookbooks/05_Lists/03_grid_list/main.dart';
 
 // Navigation
 import 'package:cookbooks_training/cookbooks/07_navigation/03_navigate_with_named_routes/FirstScreen.dart';
@@ -62,6 +63,7 @@ class MyApp extends StatelessWidget {
         // Lists
         "/05_lists/01_basic_list/main" : (context) => BasicListApp(),
         "/05_lists/02_horizontal_list/main" : (context) => HorizontalListApp(),
+        "/05_lists/03_grid_list/main" : (context) => GridListApp(),
 
         // Navigation
         "/07_navigation/03_navigate_with_named_routes/firstScreen": (context) =>
@@ -204,6 +206,11 @@ class MyHomePage extends StatelessWidget {
               buildRowItem(
                 bookName: "02 Horizontal List",
                 bookRoute: "/05_lists/02_horizontal_list/main",
+                context: context
+              ),
+              buildRowItem(
+                bookName: "03 Grid List",
+                bookRoute: "/05_lists/03_grid_list/main",
                 context: context
               ),
             ],
