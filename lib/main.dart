@@ -18,6 +18,9 @@ import 'package:cookbooks_training/cookbooks/03_forms/main.dart';
 // Gestures
 import 'package:cookbooks_training/cookbooks/04_Gestures/main.dart';
 
+// Lists
+import 'package:cookbooks_training/cookbooks/05_Lists/01_basic_list/main.dart';
+
 // Navigation
 import 'package:cookbooks_training/cookbooks/07_navigation/03_navigate_with_named_routes/FirstScreen.dart';
 import 'package:cookbooks_training/cookbooks/07_navigation/03_navigate_with_named_routes/SecondScreen.dart';
@@ -55,6 +58,10 @@ class MyApp extends StatelessWidget {
         // Gestures
         "/04_gestures/main" : (context) => AppGesture(),
 
+        // Lists
+        "/05_lists/01_basic_list/main" : (context) => BasicListApp(),
+
+        // Navigation
         "/07_navigation/03_navigate_with_named_routes/firstScreen": (context) =>
             FirstScreen(),
         "/07_navigation/03_navigate_with_named_routes/secondScreen":
@@ -177,6 +184,17 @@ class MyHomePage extends StatelessWidget {
               buildRowItem(
                 bookName: "03 Swipe to dismiss",
                 bookRoute: "/04_gestures/main",
+                context: context
+              ),
+            ],
+          ),
+
+          Column(
+            children: <Widget>[
+              buildRowTitle("05. Lists", context),
+              buildRowItem(
+                bookName: "01 Basic List",
+                bookRoute: "/05_lists/01_basic_list/main",
                 context: context
               ),
             ],
