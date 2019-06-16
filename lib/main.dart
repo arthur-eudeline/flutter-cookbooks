@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 // Animations
@@ -26,11 +28,65 @@ import 'package:cookbooks_training/cookbooks/05_Lists/04_different_types_list/ma
 import 'package:cookbooks_training/cookbooks/05_Lists/05_floating_app_bar_list/main.dart';
 import 'package:cookbooks_training/cookbooks/05_Lists/06_long_list/main.dart';
 
+// Maintenance
+//import 'package:cookbooks_training/cookbooks/06_Maintenance/main.dart';
+
 // Navigation
 import 'package:cookbooks_training/cookbooks/07_navigation/03_navigate_with_named_routes/FirstScreen.dart';
 import 'package:cookbooks_training/cookbooks/07_navigation/03_navigate_with_named_routes/SecondScreen.dart';
 
-void main() => runApp(MyApp());
+import "package:sentry/sentry.dart";
+final SentryClient _sentry = SentryClient(
+    dsn: "https://ef9785c2ace44b2a89eaa5595d9779f7@sentry.io/1483070");
+
+bool get isInDebugMode {
+  // Assume you're in production mode.
+  bool inDebugMode = false;
+
+  // Assert expressions are only evaluated during development. They are ignored
+  // in production. Therefore, this code only sets `inDebugMode` to true
+  // in a development environment.
+//  assert(inDebugMode = true);
+
+  return inDebugMode;
+}
+
+Future<Null> _reportError(dynamic error, dynamic stackTrace) async {
+  // Print the exception to the console.
+  print('Caught error: $error');
+  if (isInDebugMode) {
+    // Print the full stacktrace in debug mode.
+    print(stackTrace);
+    return;
+  } else {
+    // Send the Exception and Stacktrace to Sentry in Production mode.
+    _sentry.captureException(
+      exception: error,
+      stackTrace: stackTrace,
+    );
+  }
+}
+
+Future<Null> main() async {
+  FlutterError.onError = (FlutterErrorDetails details) async {
+    if (isInDebugMode) {
+      FlutterError.dumpErrorToConsole(details);
+    }
+
+    else {
+      Zone.current.handleUncaughtError(details.exception, details.stack);
+    }
+  };
+
+  runZoned<Future<Null>>(() async {
+    runApp(new MyApp());
+  }, onError: (error, stackTrace) async {
+    print("*** SENDING ERRORS ***");
+    await _reportError(error, stackTrace);
+  });
+}
+
+
 
 class MyApp extends StatelessWidget {
   @override
@@ -199,7 +255,6 @@ class MyHomePage extends StatelessWidget {
             ],
           ),
 
-
           // ---- 05 List ----
           Column(
             children: <Widget>[
@@ -236,6 +291,9 @@ class MyHomePage extends StatelessWidget {
               ),
             ],
           ),
+
+          // ---- 06 Maintenance ----
+          buildRowTitle("06. Maintenance", context),
 
           // ---- 07 Navigation ----
           Column(

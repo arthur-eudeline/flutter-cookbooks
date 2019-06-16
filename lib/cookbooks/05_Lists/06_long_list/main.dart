@@ -7,7 +7,7 @@ class LongListApp extends StatefulWidget {
 
 class _LongListAppState extends State<LongListApp> {
   // Todo screen title
-  String _screenTitle = "Working with long List Bar";
+  String _screenTitle = "Working with long List";
 
   final items = List<String>.generate(100, (i) => "Item $i");
 
